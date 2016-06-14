@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+
+        $('#submit').click(function () {
+
+
+          var putin = $('#putin').val();
+         var refi = 'localhost:3000/todos:' + putin;
+          window.location.href = refi;
+
+          console.log(putin);
+
+        });
+      });
+
+    </script>
+    <script>
+$(document).ready(function(){
+  $('#postGame').click(function(){
+    var idid = $('#GameId').val();
+    console.log(idid);
+    $.post('localhost:3000/todos:' + idid, {
+      GameName: $('#GameName').val(),
+      GameId: idid,
+      GameFeeature: $('#GameFeeature').val()
+    }, function(){
+      alert('YOLO')
+    })
+
+  })
+
+
+})
+    </script>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <form>
+  <input type="submit" id="submit">
+  <input type="text" id="putin">
+  </form>
+
+  <form>
+
+    <input type="text" id="GameId">
+    <input type="text" id="GameFeeature">
+    <input type="submit" id="postGame">
+
+
+  </form>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+  </body>
+</html>
